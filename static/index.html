@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AI Chat Assistant</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="app">
+    <!-- Sidebar: conversation history -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-top">
+        <div class="brand">Chat Assistant</div>
+        <button class="btn-new" id="newChatBtn">New chat</button>
+      </div>
+      <div class="history-title">History</div>
+      <ul class="history" id="historyList"></ul>
+    </aside>
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Main chat area -->
+    <main class="chat">
+      <header class="topbar">
+        <button class="icon-btn menu-btn" id="menuBtn" aria-label="Open history">&#9776;</button>
+        <h1 class="chat-title" id="chatTitle">New chat</h1>
+        <div class="controls">
+          <label class="tone-wrap">
+            <span>Tone</span>
+            <select id="toneSelect" aria-label="Response tone">
+              <option value="professional">Professional</option>
+              <option value="casual">Casual</option>
+              <option value="concise">Concise</option>
+            </select>
+          </label>
+          <button class="btn-ghost" id="exportBtn" disabled>Export TXT</button>
+        </div>
+      </header>
+
+      <section class="messages" id="messages" aria-live="polite">
+        <div class="empty" id="emptyState">
+          <h2>What can I help you with?</h2>
+          <p>Pick a tone, then ask anything. Your chats are saved in the sidebar.</p>
+          <div class="chips">
+            <button class="chip">Explain how APIs work</button>
+            <button class="chip">Write a short email asking for a deadline extension</button>
+            <button class="chip">Give me a 3-day study plan for Python</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="composer">
+        <div class="composer-box">
+          <textarea id="input" rows="1" maxlength="4000" placeholder="Type your message. Enter to send, Shift+Enter for a new line."></textarea>
+          <button class="send-btn" id="sendBtn" aria-label="Send message">Send</button>
+        </div>
+        <div class="counter" id="counter">0 / 4000</div>
+      </footer>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
